@@ -80,3 +80,4 @@ app.use((error: unknown, _req: Request, res: Response, _next: NextFunction) => {
   if (status === 503) console.error('API dependency or server error', { errorName: error instanceof Error ? error.name : 'unknown' });
   res.status(status).json({ success: false, error: { code: status === 400 ? 'INVALID_JSON' : 'SERVICE_UNAVAILABLE', message: status === 400 ? 'Request body must be valid JSON.' : 'The service is temporarily unavailable. Please try again.' } });
 });
+export default app;

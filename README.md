@@ -17,6 +17,17 @@ Scenario-driven detective mysteries. The Express API owns generation, case state
 
 The browser retains case access tokens for its current session. Keep `.env` private. Image and video generation are not included; the case uses structured fictional chat, witness, document, CCTV-style and timeline evidence.
 
+## Deploy to Vercel
+
+The root `vercel.json` configures one Vercel project with separate Vite client and Express API services. Import this repository into Vercel and set the project root to the repository root. Add these environment variables to both Production and Preview before deploying:
+
+- `MONGODB_URI`: a reachable MongoDB connection string.
+- `GEMINI_API_KEY`: a valid Google Gemini API key.
+- `CASE_TOKEN_SECRET`: a unique random value of at least 24 characters.
+- `CLIENT_ORIGIN`: the deployed Vercel origin (for example, `https://your-project.vercel.app`); add any Vercel preview origins you use.
+
+Never commit `.env` or paste secrets into source files. The client calls `/api/v1` on the deployed site's domain; local development continues to use the API on port 4000.
+
 ## What is implemented
 
 The MVP covers scenario submission, backend Gemini generation with schema and deterministic relationship/timeline validation, MongoDB persistence, case access tokens, investigation and evidence inspection, one final accusation, and a stored-solution result reveal. AI text generation needs a valid configured model/key and MongoDB connection. If generation fails, the case is marked failed and the UI provides a retry action.

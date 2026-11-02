@@ -1,4 +1,6 @@
-const API = import.meta.env.VITE_API_URL || `${window.location.protocol}//${window.location.hostname}:4000/api/v1`;
+const API = import.meta.env.VITE_API_URL || (import.meta.env.DEV
+  ? `${window.location.protocol}//${window.location.hostname}:4000/api/v1`
+  : '/api/v1');
 export type Suspect = { id: string; name: string; role: string; profile: string; motiveSummary: string; alibiSummary: string };
 export type Timeline = { id: string; occurredAt: string; description: string; involvedSuspectIds: string[]; relatedEvidenceIds: string[] };
 export type Evidence = { id: string; type: string; title: string; description: string; occurredAt?: string; content: Record<string, unknown>; relatedSuspectIds: string[]; status: string };

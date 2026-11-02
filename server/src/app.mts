@@ -3,12 +3,12 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { rateLimit } from 'express-rate-limit';
 import { ObjectId } from 'mongodb';
-import { env } from './config/env.js';
-import { db } from './config/db.js';
-import { assertCaseAccess, createCaseToken, storeToken } from './modules/mysteries/access.js';
-import { CreateMysterySchema } from './modules/mysteries/schemas.js';
-import { publicCase, publicEvidence, runGeneration } from './modules/mysteries/service.js';
-import { getResult, submitAccusation } from './modules/accusations/service.js';
+import { env } from './config/env.mjs';
+import { db } from './config/db.mjs';
+import { assertCaseAccess, createCaseToken, storeToken } from './modules/mysteries/access.mjs';
+import { CreateMysterySchema } from './modules/mysteries/schemas.mjs';
+import { publicCase, publicEvidence, runGeneration } from './modules/mysteries/service.mjs';
+import { getResult, submitAccusation } from './modules/accusations/service.mjs';
 
 export const app = express();
 app.disable('x-powered-by');

@@ -1,6 +1,6 @@
 import { app } from './app.mjs';
-import { connectDatabase, closeDatabase } from './config/db.js';
-import { env } from './config/env.js';
+import { connectDatabase, closeDatabase } from './config/db.mjs';
+import { env } from './config/env.mjs';
 
 try {
   await connectDatabase();

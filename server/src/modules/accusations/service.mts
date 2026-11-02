@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { db } from '../../config/db.js';
+import { db } from '../../config/db.mjs';
 
 export async function submitAccusation(id: string, suspectId: string) {
   const cases = db().collection('mysteries');

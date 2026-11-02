@@ -1,7 +1,7 @@
 import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
 import { ObjectId } from 'mongodb';
-import { env } from '../../config/env.js';
-import { db } from '../../config/db.js';
+import { env } from '../../config/env.mjs';
+import { db } from '../../config/db.mjs';
 
 export function createCaseToken() { return randomBytes(32).toString('base64url'); }
 function digest(token: string) { return createHmac('sha256', env.CASE_TOKEN_SECRET).update(token).digest('hex'); }

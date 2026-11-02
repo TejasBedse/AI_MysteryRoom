@@ -1,8 +1,8 @@
 import { GoogleGenAI, ThinkingLevel } from '@google/genai';
 import { ZodError } from 'zod';
-import { env } from '../../config/env.js';
-import { BlueprintSchema, type Blueprint, type CreateMysteryInput, validateBlueprint } from '../mysteries/schemas.js';
-import { BLUEPRINT_PROMPT } from './prompts.js';
+import { env } from '../../config/env.mjs';
+import { BlueprintSchema, type Blueprint, type CreateMysteryInput, validateBlueprint } from '../mysteries/schemas.mjs';
+import { BLUEPRINT_PROMPT } from './prompts.mjs';
 
 const responseSchema = {
   type: 'object', required: ['title','incidentReport','normalizedPremise','suspects','solution','timeline','evidence'],

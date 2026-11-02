@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
-import { db } from '../../config/db.js';
-import { generateBlueprint } from '../ai/geminiProvider.js';
-import type { CreateMysteryInput } from './schemas.js';
+import { db } from '../../config/db.mjs';
+import { generateBlueprint } from '../ai/geminiProvider.mjs';
+import type { CreateMysteryInput } from './schemas.mjs';
 
 function generationFailure(error: unknown) {
   const value = error as { name?: string; message?: string; status?: number; cause?: { code?: string } };
